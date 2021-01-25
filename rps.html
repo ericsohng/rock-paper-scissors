@@ -7,11 +7,45 @@ function computerPlay() {
         'Scissors'
             ]; 
 
-    let randomPick = myArray[Math.random()*myArray.length)];
+    let randomPick = myArray[Math.floor(Math.random()*myArray.length)];
 
     return randomPick;
 
 };
+
+function playRound(playerSelection, computerSelection) {
+    let playerPick = playerSelection.toLowerCase();
+    let computerPick = computerSelection.toLowerCase();
+
+
+
+    if (playerPick === 'rock') {
+        if (computerPick === 'rock') {
+            return 'It\'s a tie!';
+        } else if (computerPick === 'paper') {
+            return 'You lose! Paper beats Rock';
+        } else {
+            return 'You win! Rock beats Scissors';
+        }
+    } else if (playerPick === 'paper') {
+        if (computerPick === 'rock') {
+            return 'You win! Paper beats Rock';
+        } else if (computerPick === 'paper') {
+            return 'It\'s a tie!';
+        } else {
+            return 'You lose! Scissors beats Paper';
+        }
+    } else {
+        if (computerPick === 'rock') {
+            return 'You lose! Rock beats Scissors';
+        } else if (computerPick === 'paper') {
+            return 'You win! Scissors beats Paper';
+        } else {
+            return 'It\'s a tie!'
+        }
+    }
+
+}
 
 
 </script>
