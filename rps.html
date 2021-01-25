@@ -23,27 +23,76 @@ function playRound(playerSelection, computerSelection) {
         if (computerPick === 'rock') {
             return 'It\'s a tie!';
         } else if (computerPick === 'paper') {
-            return 'You lose! Paper beats Rock';
+            return 'Aww. You lose! Paper beats Rock';
         } else {
-            return 'You win! Rock beats Scissors';
+            return 'Nice. You win! Rock beats Scissors';
         }
     } else if (playerPick === 'paper') {
         if (computerPick === 'rock') {
-            return 'You win! Paper beats Rock';
+            return 'Nice. You win! Paper beats Rock';
         } else if (computerPick === 'paper') {
             return 'It\'s a tie!';
         } else {
-            return 'You lose! Scissors beats Paper';
+            return 'Aww. You lose! Scissors beats Paper';
         }
     } else {
         if (computerPick === 'rock') {
-            return 'You lose! Rock beats Scissors';
+            return 'Aww. You lose! Rock beats Scissors';
         } else if (computerPick === 'paper') {
-            return 'You win! Scissors beats Paper';
+            return 'Nice. You win! Scissors beats Paper';
         } else {
             return 'It\'s a tie!'
         }
     }
+
+}
+
+// calc results function calcs the score and should return a victory or defeat message
+function calcResults(result1, result2, result3, result4, result5) {
+
+}
+
+function game() {
+    // run the playRound function 5 times with player input via prompt()
+
+    // player inputs pick
+    let playerSelection = prompt('Rock, Paper, or Scissors?', ' ');
+    let computerSelection = computerPlay();
+    let result1 = playRound(playerSelection, computerSelection);
+    console.log(result1);
+
+
+    playerSelection = prompt('Rock, Paper, or Scissors?', ' ');
+    computerSelection = computerPlay();
+    let result2 = playRound(playerSelection, computerSelection);
+    console.log(result2);
+
+
+    playerSelection = prompt('Rock, Paper, or Scissors?', ' ');
+    computerSelection = computerPlay();
+    let result3 = playRound(playerSelection, computerSelection);
+    console.log(result3);
+    
+
+    playerSelection = prompt('Rock, Paper, or Scissors?', ' ');
+    computerSelection = computerPlay();
+    let result4 = playRound(playerSelection, computerSelection);
+    console.log(result4);
+
+
+    playerSelection = prompt('Rock, Paper, or Scissors?', ' ');
+    computerSelection = computerPlay();
+    let result5 = playRound(playerSelection, computerSelection);
+    console.log(result5);
+
+    console.log(calcResults());
+    
+
+
+    // console returns result of the round along with the score after each round
+    // after 5 rounds console reports GAME OVER along with the final score and declared winner
+
+
 
 }
 
