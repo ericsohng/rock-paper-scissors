@@ -1,3 +1,14 @@
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+        console.log(playRound(button.id, computerPlay()));
+        
+    })
+})
+
+
 function computerPlay() {
     let myArray = [
         'Rock',
@@ -92,7 +103,7 @@ function calcResults(result1, result2, result3, result4, result5) {
 
 }
 
-function game() {
+/* function game() {
     // run the playRound function 5 times with player input via prompt()
 
     // player inputs pick
@@ -135,3 +146,5 @@ function game() {
 
 
 }
+
+*/
