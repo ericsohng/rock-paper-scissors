@@ -27,14 +27,17 @@ buttons.forEach((button) => {
         if (playerScore === 5 || computerScore === 5) {
             if (playerScore > computerScore) {
                 message.textContent = 'VICTORY! You beat the computer ' + playerScore + ' to ' + computerScore; 
-                reset.appendChild(resetButton);
+                // need to make RPS buttons disappear and reappear after play again is pressed
+                
             } else if (playerScore < computerScore) {
                 message.textContent = 'DEFEAT! The computer beat you ' + computerScore + ' to ' + playerScore;
-                reset.appendChild(resetButton);
             }
+            reset.appendChild(resetButton);
+            
         }
 
     })
+
 })
 
 resetButton.addEventListener('click', () => {
