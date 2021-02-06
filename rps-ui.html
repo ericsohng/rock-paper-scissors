@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>RPS UI</title>
+  <title>RPS-UI</title>
   <meta name="author" content="">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,28 +11,48 @@
   <link href="style.css" rel="stylesheet">
 </head>
 
-<body>
-  <div id="game-buttons">
-    <button class="rps-button" id="rock">ROCK</button>
-    <button class="rps-button" id="paper">PAPER</button>
-    <button class="rps-button" id="scissors">SCISSORS</button>
-  </div>
+<main>
+  <h1 id="header"> First to Five</h1>
+
+  <body>
+
+    <div id="scoreboard"> 
+      <div id="human-score" class="column" src="">HUMAN</div>
+      <div id="comp-score" class="column">COMPUTER</div>
+    </div> 
+
+    <div id="game-buttons">
+      <img id="r-img" class="rps-buttons" src="photos/rock-fun.jpeg">
+      <img id="p-img" class="rps-buttons" src="photos/paper-fun.png">
+      <img id="s-img" class="rps-buttons" src="photos/scizor-fun.jpg">
+      
+
+      <!-- need to transfer over functionality of old buttons to pic buttons-->
+      <button class="rps-button" id="rock">ROCK</button>
+      <button class="rps-button" id="paper">PAPER</button>
+      <button class="rps-button" id="scissors">SCISSORS</button>
+    </div>
+    
+    <div id="reset-button"></div>
   
-  <div id="reset-button"></div>
 
-  <div id="results">
-    <div id="player-score">You: 0 </div>
-    <div id="comp-score">Computer: 0</div>
-  </div>
-
-  <div id="message"></div>
-
-
+    <!-- comment the below portion out and incorporate script into #scoreboard-->
+    <div id="results">
+      <div id="player-score">You: 0 </div>
+      <div id="comp-score">Computer: 0</div>
+    </div>
   
+    <div id="message"></div>
+  
+  
+    
+  
+  
+    <script src="script.js"></script>
+  </body>
 
+</main>
 
-  <script src="script.js"></script>
-</body>
 
 </html>
 

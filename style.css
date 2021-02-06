@@ -1,0 +1,40 @@
+html {
+    background-color: #DBFEF8;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#scoreboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    text-decoration: underline;
+
+}
+
+
+.column {
+    flex: 50%;
+    margin: 0;
+    text-align: center;
+}
+
+.rps-buttons {
+    display: inline-block;
+    height: 400px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+ 
+}
+
+#game-buttons {
+    text-align: center;
+}
