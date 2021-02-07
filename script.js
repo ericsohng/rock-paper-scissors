@@ -1,6 +1,6 @@
-const buttons = document.querySelectorAll('.rps-button');
+const imgButtons = document.querySelectorAll('.rps-buttons');
 
-const playerScoreDis = document.querySelector('#player-score');
+const playerScoreDis = document.querySelector('#human-score');
 const compScoreDis = document.querySelector('#comp-score');
 
 const message = document.querySelector('#message');
@@ -13,7 +13,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 
-buttons.forEach((button) => {
+imgButtons.forEach((button) => {
 
     button.addEventListener('click', () => {
         let outcome = playRound(button.id, computerPlay());
@@ -27,7 +27,7 @@ buttons.forEach((button) => {
         if (playerScore === 5 || computerScore === 5) {
             if (playerScore > computerScore) {
                 message.textContent = 'VICTORY! You beat the computer ' + playerScore + ' to ' + computerScore; 
-                // need to make RPS buttons disappear and reappear after play again is pressed
+                // need to make RPS imgButtons disappear and reappear after play again is pressed
                 
             } else if (playerScore < computerScore) {
                 message.textContent = 'DEFEAT! The computer beat you ' + computerScore + ' to ' + playerScore;

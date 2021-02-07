@@ -28,8 +28,8 @@ h1 {
 
 .rps-buttons {
     display: inline-block;
-    height: 400px;
-    margin-top: 60px;
+    height: 370px;
+    margin-top: 130px;
     margin-left: auto;
     margin-right: auto;
  
@@ -38,3 +38,4 @@ h1 {
 #game-buttons {
     text-align: center;
 }
+
