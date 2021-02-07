@@ -22,6 +22,7 @@ imgButtons.forEach((button) => {
         // round result adds a point to either player or comp
         // if and when score hits 5, display winner and ask for rematch?
         calcScore(outcome);
+        button.style.transform = "rotate(180deg)"
 
         
         if (playerScore === 5 || computerScore === 5) {

@@ -35,6 +35,10 @@ h1 {
  
 }
 
+.rps-buttons:hover {
+    cursor: pointer;
+}
+
 #game-buttons {
     text-align: center;
 }
