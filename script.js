@@ -1,7 +1,7 @@
 const imgButtons = document.querySelectorAll('.rps-buttons');
 
-const playerScoreDis = document.querySelector('#human-score');
-const compScoreDis = document.querySelector('#comp-score');
+const playerScoreDis = document.querySelector('.player-title');
+const compScoreDis = document.querySelector('.comp-title');
 
 const message = document.querySelector('#message');
 

@@ -1,5 +1,5 @@
 html {
-    background-color: #DBFEF8;
+    background-color: #c1e2dd;
 }
 
 h1 {
@@ -8,30 +8,75 @@ h1 {
     font-size: 80px;
     margin-top: 40px;
     margin-bottom: 40px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 850;
 }
 
-#scoreboard {
-    display: flex;
+.scoreboard {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 40px 60px;
     justify-content: center;
-    align-items: center;
     font-size: 40px;
-    text-decoration: underline;
+
 
 }
 
+.player-title {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    text-decoration: underline;
+    justify-self: center;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
 
-.column {
-    flex: 50%;
-    margin: 0;
-    text-align: center;
+.comp-title {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    text-decoration: underline;
+    justify-self: center;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+.player-score {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    justify-self: center;
+    padding-top: 20px;
+    display: flex;
+}
+
+.comp-score {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    justify-self: center;
+    padding-top: 20px;
+    display: flex;
+}
+
+.score-circle {
+    border: 4px solid white;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-color: #c1e2dd;
+    -moz-border-radius: 50%;
+    -webkit-border-image: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .rps-buttons {
     display: inline-block;
     height: 370px;
-    margin-top: 130px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
  
 }
 
