@@ -1,5 +1,5 @@
 html {
-    background-color: #c1e2dd;
+    background-color: #b9d6d2;
 }
 
 h1 {
@@ -9,13 +9,13 @@ h1 {
     margin-top: 40px;
     margin-bottom: 40px;
     color: white;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Helvetica';
     font-weight: 850;
 }
 
 .scoreboard {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 40px 60px;
     justify-content: center;
     font-size: 40px;
@@ -24,27 +24,27 @@ h1 {
 }
 
 .player-title {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    text-decoration: underline;
-    justify-self: center;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-}
-
-.comp-title {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     text-decoration: underline;
     justify-self: center;
     color: white;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Helvetica';
+    font-weight: 600;
+}
+
+.comp-title {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+    text-decoration: underline;
+    justify-self: center;
+    color: white;
+    font-family: 'Helvetica';
     font-weight: 600;
 }
 
 .player-score {
-    grid-column: 1 / 2;
+    grid-column: 2 / 3;
     grid-row: 2 / 3;
     justify-self: center;
     padding-top: 20px;
@@ -52,19 +52,31 @@ h1 {
 }
 
 .comp-score {
-    grid-column: 2 / 3;
+    grid-column: 4 / 5;
     grid-row: 2 / 3;
     justify-self: center;
     padding-top: 20px;
     display: flex;
 }
 
+#message {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    font-size: 20px;
+    color: white;
+}
+
+
 .score-circle {
     border: 4px solid white;
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    background-color: #c1e2dd;
+    background-color: #b9d6d2;;
     -moz-border-radius: 50%;
     -webkit-border-image: 50%;
     margin-right: 5px;
@@ -79,6 +91,7 @@ h1 {
     margin-right: 25px;
  
 }
+
 
 .rps-buttons:hover {
     cursor: pointer;

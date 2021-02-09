@@ -1,7 +1,7 @@
 const imgButtons = document.querySelectorAll('.rps-buttons');
 
-const playerScoreDis = document.querySelector('.player-title');
-const compScoreDis = document.querySelector('.comp-title');
+const playerScoreDis = document.querySelectorAll('.player-circle');
+const compScoreDis = document.querySelectorAll('.comp-circle');
 
 const message = document.querySelector('#message');
 
@@ -22,7 +22,7 @@ imgButtons.forEach((button) => {
         // round result adds a point to either player or comp
         // if and when score hits 5, display winner and ask for rematch?
         calcScore(outcome);
-        button.style.transform = "rotate(180deg)"
+        // button.style.transform = "rotate(180deg)"
 
         
         if (playerScore === 5 || computerScore === 5) {
@@ -44,8 +44,10 @@ imgButtons.forEach((button) => {
 resetButton.addEventListener('click', () => {
     playerScore = 0;
     computerScore = 0;
-    compScoreDis.textContent = `Computer: ${computerScore}`;
-    playerScoreDis.textContent = `Player: ${playerScore}`;
+    for (i = 0; i < 5; i++) {
+        compScoreDis[i].style.backgroundColor = "#b9d6d2";
+        playerScoreDis[i].style.backgroundColor = "#b9d6d2";
+    }
     message.textContent = 'Here we go again!';
     reset.removeChild(resetButton);
 })
@@ -53,21 +55,21 @@ resetButton.addEventListener('click', () => {
 
 
 function computerPlay() {
-    let myArray = [
+    const myArray = [
         'Rock',
         'Paper',
         'Scissors'
     ];
 
-    let randomPick = myArray[Math.floor(Math.random() * myArray.length)];
+    const randomPick = myArray[Math.floor(Math.random() * myArray.length)];
 
     return randomPick;
 
 };
 
 function playRound(playerSelection, computerSelection) {
-    let playerPick = playerSelection.toLowerCase();
-    let computerPick = computerSelection.toLowerCase();
+    const playerPick = playerSelection.toLowerCase();
+    const computerPick = computerSelection.toLowerCase();
 
 
 
@@ -75,25 +77,25 @@ function playRound(playerSelection, computerSelection) {
         if (computerPick === 'rock') {
             return 'It\'s a tie!';
         } else if (computerPick === 'paper') {
-            return 'Aww. Paper beats Rock';
+            return 'Aww. You suck. Paper beats Rock.';
         } else {
-            return 'Nice. Rock beats Scissors';
+            return 'Nice! Rock beats Scissors.';
         }
     } else if (playerPick === 'paper') {
         if (computerPick === 'rock') {
-            return 'Nice. Paper beats Rock';
+            return 'Nice! Paper beats Rock.';
         } else if (computerPick === 'paper') {
             return 'It\'s a tie!';
         } else {
-            return 'Aww. Scissors beats Paper';
+            return 'Aww. You suck. Scissors beats Paper.';
         }
-    } else {
+    } else if (playerPick === 'scissors') {
         if (computerPick === 'rock') {
-            return 'Aww. Rock beats Scissors';
+            return 'Aww. You suck. Rock beats Scissors.';
         } else if (computerPick === 'paper') {
-            return 'Nice. Scissors beats Paper';
+            return 'Nice! Scissors beats Paper.';
         } else {
-            return 'It\'s a tie!'
+            return 'It\'s a tie!';
         }
     }
 
@@ -102,9 +104,10 @@ function playRound(playerSelection, computerSelection) {
 
 function calcScore(outcome) {
     if (outcome.charAt(0) === 'A') {
-        compScoreDis.textContent = `Computer: ${++computerScore}`;
+
+        compScoreDis[computerScore++].style.backgroundColor = "white";
     } else if (outcome.charAt(0) === 'N') {
-        playerScoreDis.textContent = `You: ${++playerScore}`;
+        playerScoreDis[playerScore++].style.backgroundColor = "white";
     } else {
         console.log('tie');
     }
