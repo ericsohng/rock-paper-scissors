@@ -85,19 +85,45 @@ h1 {
 
 .rps-buttons {
     display: inline-block;
-    height: 370px;
-    margin-top: 50px;
-    margin-left: 25px;
-    margin-right: 25px;
+    height: 310px;
+    margin-top: 100px;
+
  
 }
 
+#rock {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+
+    justify-self: center;
+    align-self: center;
+}
+
+#paper {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+
+    justify-self: center;
+    align-self: center;
+    width: 400px;
+}
+
+#scissors {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+
+    justify-self: center;
+    align-self: center;
+}
 
 .rps-buttons:hover {
     cursor: pointer;
 }
 
 #game-buttons {
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 370px;
+    justify-content: center;
 }
 
