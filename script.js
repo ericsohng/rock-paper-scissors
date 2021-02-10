@@ -1,4 +1,7 @@
 const imgButtons = document.querySelectorAll('.rps-buttons');
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
 
 const playerScoreDis = document.querySelectorAll('.player-circle');
 const compScoreDis = document.querySelectorAll('.comp-circle');
@@ -15,14 +18,42 @@ let computerScore = 0;
 
 imgButtons.forEach((button) => {
 
-    button.addEventListener('click', () => {
-        let outcome = playRound(button.id, computerPlay());
+    button.addEventListener('click', async () => {
+        const computerPlayResult = computerPlay();
+        let outcome = playRound(button.id, computerPlayResult);
+        if (button.id === 'rock') {
+            paperBtn.style.opacity = "0";
+            scissorsBtn.style.opacity = "0";
+            paperBtn.style.pointerEvents = "none";
+            scissorsBtn.style.pointerEvents = "none";
+            await sleep(600);
+            button.style.transform = "translate(50px, 0px)";
+            // use computerPlayResult to show the proper img for comp play
+            
+        } else if (button.id === 'paper') {
+            rockBtn.style.opacity = "0";
+            scissorsBtn.style.opacity = "0";
+            rockBtn.style.pointerEvents = "none";
+            scissorsBtn.style.pointerEvents = "none";
+            await sleep(600);
+            button.style.transform = "translate(-370px, 0px)";
+        } else if (button.id === 'scissors') {
+            rockBtn.style.opacity = "0";
+            paperBtn.style.opacity = "0";
+            rockBtn.style.pointerEvents = "none";
+            paperBtn.style.pointerEvents = "none";
+            await sleep(600);
+            button.style.transform = "translate(-790px, 0px)";
+        }
+
+        
+
+
         message.textContent = outcome;
         // place console.log parameter above into a variable. 
         // round result adds a point to either player or comp
         // if and when score hits 5, display winner and ask for rematch?
         calcScore(outcome);
-        // button.style.transform = "rotate(180deg)"
 
         
         if (playerScore === 5 || computerScore === 5) {
@@ -115,7 +146,7 @@ function calcScore(outcome) {
 }
 
 
-
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 // calcResults function calcs the score and should return a victory or defeat message
 function calcResults(result1, result2, result3, result4, result5) {
