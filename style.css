@@ -94,9 +94,11 @@ h1 {
 }
 
 #game-buttons {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    z-index: 2;
 }
 
 #rock {
@@ -126,6 +128,48 @@ h1 {
 
 
 #computer-img {
-    height: 500px;
-    display: incline-block;
+    position: relative;
+    z-index: 1;
+}
+
+#comp-rock {
+    display: ;
+    height: 370px;
+    position: absolute;
+    top: -370px;
+    left: 72%;
+    opacity: 0;
+
+}
+
+#comp-paper {
+    height: 370px;
+    width: 500px;
+    position: absolute;
+    top: -370px;
+    left: 72%;
+
+    opacity: 0;
+}
+
+#comp-scissors {
+    height: 370px;
+    width: 270px;
+    position: absolute;
+    top: -370px;
+    left: 72%;
+
+    opacity: 0;
+}
+
+.transition-class {
+    transition: 850ms;
+    left: 62% !important;
+    opacity: 1 !important;
+}
+
+.transition-class-paper {
+    transition: 850ms;
+    left: 56.5% !important;
+    opacity: 1 !important;
 }

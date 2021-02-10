@@ -4,6 +4,9 @@ const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 
+const compRock = document.querySelector('#comp-rock');
+const compPaper = document.querySelector('#comp-paper');
+const compScissors = document.querySelector('#comp-scissors');
 
 const playerScoreDis = document.querySelectorAll('.player-circle');
 const compScoreDis = document.querySelectorAll('.comp-circle');
@@ -39,14 +42,11 @@ imgButtons.forEach((button) => {
             // set opacity to 1 when computer image is called on
 
             if (computerThrow === 'rock') {
-
-
+                compRock.classList.add('transition-class');
             } else if (computerThrow === 'paper') {
-                paperBtn.style.transform = "translate(355px, 0px)";
-                paperBtn.style.opacity = "1";
+                compPaper.classList.add('transition-class-paper');
             } else if (computerThrow === 'scissors') {
-                scissorsBtn.style.transform = "translate(-50px, 0px";
-                scissorsBtn.style.opacity = "1";
+                compScissors.classList.add('transition-class');
             }
         } else if (button.id === 'paper') {
             rockBtn.style.opacity = "0";
@@ -64,7 +64,7 @@ imgButtons.forEach((button) => {
             button.style.transform = "translate(-790px, 0px)";
         }
 
-        
+        await sleep (800);
 
 
         message.textContent = outcome;
