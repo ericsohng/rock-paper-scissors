@@ -1,7 +1,9 @@
 const imgButtons = document.querySelectorAll('.rps-buttons');
+const buttonNode = document.querySelector('#computer-img');
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
+
 
 const playerScoreDis = document.querySelectorAll('.player-circle');
 const compScoreDis = document.querySelectorAll('.comp-circle');
@@ -19,8 +21,8 @@ let computerScore = 0;
 imgButtons.forEach((button) => {
 
     button.addEventListener('click', async () => {
-        const computerPlayResult = computerPlay();
-        let outcome = playRound(button.id, computerPlayResult);
+        const computerThrow = computerPlay();
+        const outcome = playRound(button.id, computerThrow);
         if (button.id === 'rock') {
             paperBtn.style.opacity = "0";
             scissorsBtn.style.opacity = "0";
@@ -28,8 +30,24 @@ imgButtons.forEach((button) => {
             scissorsBtn.style.pointerEvents = "none";
             await sleep(600);
             button.style.transform = "translate(50px, 0px)";
-            // use computerPlayResult to show the proper img for comp play
+            await sleep(600);
             
+            
+            
+            // use computerPlayResult to show the proper img for comp play
+            // create a stack of images at the proper location with opacity set to 0
+            // set opacity to 1 when computer image is called on
+
+            if (computerThrow === 'rock') {
+
+
+            } else if (computerThrow === 'paper') {
+                paperBtn.style.transform = "translate(355px, 0px)";
+                paperBtn.style.opacity = "1";
+            } else if (computerThrow === 'scissors') {
+                scissorsBtn.style.transform = "translate(-50px, 0px";
+                scissorsBtn.style.opacity = "1";
+            }
         } else if (button.id === 'paper') {
             rockBtn.style.opacity = "0";
             scissorsBtn.style.opacity = "0";
@@ -87,9 +105,9 @@ resetButton.addEventListener('click', () => {
 
 function computerPlay() {
     const myArray = [
-        'Rock',
-        'Paper',
-        'Scissors'
+        'rock',
+        'paper',
+        'scissors'
     ];
 
     const randomPick = myArray[Math.floor(Math.random() * myArray.length)];

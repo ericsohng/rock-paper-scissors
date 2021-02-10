@@ -110,8 +110,7 @@ h1 {
     justify-self: center;
     align-self: center;
     flex-basis: 0;
-    transition: ;
-}
+ }
 
 #scissors {
     width: 270px;
@@ -126,4 +125,7 @@ h1 {
 }
 
 
-
+#computer-img {
+    height: 500px;
+    display: incline-block;
+}
