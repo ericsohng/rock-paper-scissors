@@ -13,6 +13,9 @@ const compScoreDis = document.querySelectorAll('.comp-circle');
 
 const message = document.querySelector('#message');
 
+const nextRoundButton = document.createElement('button');
+nextRoundButton.textContent = 'Next Round';
+
 const reset = document.querySelector('#reset-button');
 const resetButton = document.createElement('button');
 resetButton.textContent = 'Play Again?';
@@ -29,45 +32,40 @@ imgButtons.forEach((button) => {
         if (button.id === 'rock') {
             paperBtn.style.opacity = "0";
             scissorsBtn.style.opacity = "0";
+            rockBtn.style.pointerEvents = "none";
             paperBtn.style.pointerEvents = "none";
             scissorsBtn.style.pointerEvents = "none";
             await sleep(600);
             button.style.transform = "translate(50px, 0px)";
-            await sleep(600);
-            
-            
-            
-            // use computerPlayResult to show the proper img for comp play
-            // create a stack of images at the proper location with opacity set to 0
-            // set opacity to 1 when computer image is called on
-
-            if (computerThrow === 'rock') {
-                compRock.classList.add('transition-class');
-            } else if (computerThrow === 'paper') {
-                compPaper.classList.add('transition-class-paper');
-            } else if (computerThrow === 'scissors') {
-                compScissors.classList.add('transition-class');
-            }
+            await sleep(800);
+            displayCompThrow(computerThrow);
         } else if (button.id === 'paper') {
             rockBtn.style.opacity = "0";
             scissorsBtn.style.opacity = "0";
             rockBtn.style.pointerEvents = "none";
+            paperBtn.style.pointerEvents = "none";
             scissorsBtn.style.pointerEvents = "none";
             await sleep(600);
             button.style.transform = "translate(-370px, 0px)";
+            await sleep(800);
+            displayCompThrow(computerThrow);
         } else if (button.id === 'scissors') {
             rockBtn.style.opacity = "0";
             paperBtn.style.opacity = "0";
             rockBtn.style.pointerEvents = "none";
             paperBtn.style.pointerEvents = "none";
+            scissorsBtn.style.pointerEvents = "none";
             await sleep(600);
             button.style.transform = "translate(-790px, 0px)";
+            await sleep(800);
+            displayCompThrow(computerThrow);
         }
 
         await sleep (800);
 
 
         message.textContent = outcome;
+        message.appendChild(nextRoundButton);
         // place console.log parameter above into a variable. 
         // round result adds a point to either player or comp
         // if and when score hits 5, display winner and ask for rematch?
@@ -77,17 +75,44 @@ imgButtons.forEach((button) => {
         if (playerScore === 5 || computerScore === 5) {
             if (playerScore > computerScore) {
                 message.textContent = 'VICTORY! You beat the computer ' + playerScore + ' to ' + computerScore; 
-                // need to make RPS imgButtons disappear and reappear after play again is pressed
+                
                 
             } else if (playerScore < computerScore) {
                 message.textContent = 'DEFEAT! The computer beat you ' + computerScore + ' to ' + playerScore;
             }
-            reset.appendChild(resetButton);
+            message.appendChild(resetButton);
             
         }
 
     })
 
+})
+
+function displayCompThrow(selection) {
+    if (selection === 'rock') {
+        compRock.classList.add('transition-class');
+    } else if (selection === 'paper') {
+        compPaper.classList.add('transition-class-paper');
+    } else if (selection === 'scissors') {
+        compScissors.classList.add('transition-class');
+    }
+}
+
+nextRoundButton.addEventListener('click', () => {
+    compRock.classList.remove('transition-class');
+    compPaper.classList.remove('transition-class-paper');
+    compScissors.classList.remove('transition-class');
+    rockBtn.style.opacity = "1";
+    paperBtn.style.opacity = "1";
+    scissorsBtn.style.opacity = "1";
+    rockBtn.style.pointerEvents = "auto";
+    paperBtn.style.pointerEvents = "auto";
+    scissorsBtn.style.pointerEvents = "auto";
+    rockBtn.style.transform = "none";
+    paperBtn.style.transform = "none";
+    scissorsBtn.style.transform = "none";
+    message.removeChild(nextRoundButton);
+    message.textContent = "Make your pick:";
 })
 
 resetButton.addEventListener('click', () => {
@@ -97,9 +122,22 @@ resetButton.addEventListener('click', () => {
         compScoreDis[i].style.backgroundColor = "#b9d6d2";
         playerScoreDis[i].style.backgroundColor = "#b9d6d2";
     }
-    message.textContent = 'Here we go again!';
-    reset.removeChild(resetButton);
+    compRock.classList.remove('transition-class');
+    compPaper.classList.remove('transition-class-paper');
+    compScissors.classList.remove('transition-class');
+    rockBtn.style.opacity = "1";
+    paperBtn.style.opacity = "1";
+    scissorsBtn.style.opacity = "1";
+    rockBtn.style.pointerEvents = "auto";
+    paperBtn.style.pointerEvents = "auto";
+    scissorsBtn.style.pointerEvents = "auto";
+    rockBtn.style.transform = "none";
+    paperBtn.style.transform = "none";
+    scissorsBtn.style.transform = "none";
+    message.removeChild(resetButton);
+    message.textContent = "Make your pick:";
 })
+
 
 
 
